@@ -5,7 +5,7 @@
   "description": "actual syncing server",
   "type": "module",
   "scripts": {
-    "start": "ts-node-esm app",
+    "start": "ts-node-esm app.ts",
     "dev": "NODE_ENV=development nodemon -e ts,js app",
     "debug": "NODE_ENV=development DEBUG='express:*' yarn dev",
     "lint": "eslint . --max-warnings 0",
@@ -17,6 +17,7 @@
     "health-check": "node src/scripts/health-check.js"
   },
   "dependencies": {
+    "@actual-app/api": "^6.1.0",
     "@actual-app/crdt": "2.0.0",
     "@actual-app/web": "23.7.0",
     "bcrypt": "^5.1.0",
