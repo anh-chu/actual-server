@@ -1,6 +1,6 @@
 {
   "name": "actual-sync",
-  "version": "23.7.0",
+  "version": "23.7.2",
   "license": "MIT",
   "description": "actual syncing server",
   "type": "module",
@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "@actual-app/api": "^6.1.0",
-    "@actual-app/crdt": "2.0.0",
-    "@actual-app/web": "23.7.0",
+    "@actual-app/crdt": "2.0.1",
+    "@actual-app/web": "23.7.2",
     "bcrypt": "^5.1.0",
     "better-sqlite3": "^8.2.0",
     "body-parser": "^1.20.1",
@@ -34,7 +34,7 @@
     "jsonwebtoken": "^9.0.0",
     "jws": "^4.0.0",
     "jwt-redis": "^7.0.3",
-    "nordigen-node": "^1.2.3",
+    "nordigen-node": "^1.2.6",
     "redis": "^4.6.7",
     "redlock": "^5.0.0-beta.2",
     "uuid": "^9.0.0"
