@@ -18,6 +18,7 @@ process.on('unhandledRejection', (reason) => {
   console.log('Rejection:', reason);
 });
 
+app.set('trust proxy', true);
 app.use(cors());
 app.use(
   rateLimit({
