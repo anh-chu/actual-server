@@ -20,14 +20,6 @@ process.on('unhandledRejection', (reason) => {
 
 app.set('trust proxy', true);
 app.use(cors());
-app.use(
-  rateLimit({
-    windowMs: 60 * 1000,
-    max: 500,
-    legacyHeaders: false,
-    standardHeaders: true,
-  }),
-);
 app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.raw({ type: 'application/actual-sync', limit: '20mb' }));
 app.use(bodyParser.raw({ type: 'application/encrypted-file', limit: '50mb' }));
