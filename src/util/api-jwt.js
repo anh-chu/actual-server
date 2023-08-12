@@ -2,7 +2,7 @@ import { redisClient, credsPrefix, jwtr, expiresIn } from './api-config.js';
 
 const secret = 'TYLFtYGx23q38V/PgX/L3Ntgj9LGP2c6nTOWpKjYmJc=';
 
-export async function generateToken(payload?) {
+export async function generateToken(payload) {
   if (!payload) payload = {};
   return await jwtr.sign(payload, secret, { expiresIn: expiresIn.toString() });
 }

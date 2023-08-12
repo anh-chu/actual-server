@@ -46,6 +46,7 @@
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/express-actuator": "^1.8.0",
+    "@types/express-requests-logger": "^3.0.1",
     "@types/jest": "^29.2.3",
     "@types/node": "^17.0.45",
     "@types/supertest": "^2.0.12",

@@ -4,7 +4,6 @@ import actuator from 'express-actuator';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import config from './load-config.js';
-import rateLimit from 'express-rate-limit';
 
 import * as accountApp from './app-account.js';
 import * as syncApp from './app-sync.js';
@@ -67,7 +66,7 @@ export default async function run() {
     fs.mkdirSync(config.userFiles);
   }
 
-  await accountApp.init();
+  accountApp.init();
   await syncApp.init();
 
   if (config.https) {

@@ -1,5 +1,6 @@
 import express from 'express';
 import errorMiddleware from './util/error-middleware.js';
+// @ts-ignore
 import api from '@actual-app/api';
 import audit from 'express-requests-logger';
 
@@ -48,10 +49,7 @@ app.post('/init', async (req, res) => {
     password: creds.budgetPassword,
   });
   const token = await generateToken();
-  const decodedToken = (await jwtr.decode(token)) as {
-    jti: string;
-    exp: number;
-  };
+  const decodedToken = await jwtr.decode(token);
   await redisClient.set(credsPrefix + decodedToken.jti, JSON.stringify(creds));
   await redisClient.expireAt(credsPrefix + decodedToken.jti, decodedToken.exp);
   res.status(200).send({ token });

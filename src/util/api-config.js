@@ -1,11 +1,11 @@
 import Redlock from 'redlock';
 import ioredis from 'ioredis';
-import { createClient, RedisClientType } from 'redis';
+import { createClient } from 'redis';
 import finalConfig from '../load-config.js';
 import JWTR from 'jwt-redis';
 
 // Initialize client with ioredis
-export const redisClient = createClient() as RedisClientType;
+export const redisClient = createClient();
 
 redisClient.on('error', (err) => console.log('Redis Client Error', err));
 
@@ -14,7 +14,8 @@ await redisClient.connect();
 export const sessionPrefix = 'actual:';
 export const credsPrefix = 'actualCreds:';
 
-export const jwtr = new JWTR.default(redisClient as RedisClientType);
+// @ts-ignore
+export const jwtr = new JWTR.default(redisClient);
 
 // 12h
 export const expiresIn = 1000 * 60 * 60 * 12;
