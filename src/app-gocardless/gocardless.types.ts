@@ -53,6 +53,11 @@ export type NormalizedAccountDetails = {
 
 export type GetTransactionsParams = {
   /**
+   * Id of the institution from GoCardless
+   */
+  institutionId: string;
+
+  /**
    * Id of account from the GoCardless app
    */
   accountId: string;
@@ -65,7 +70,7 @@ export type GetTransactionsParams = {
   /**
    * End date of the period from which we want to download transactions
    */
-  endDate: string;
+  endDate?: string;
 };
 
 export type GetTransactionsResponse = {
