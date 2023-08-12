@@ -80,6 +80,8 @@ const finalConfig = {
   serverFiles: process.env.ACTUAL_SERVER_FILES || config.serverFiles,
   userFiles: process.env.ACTUAL_USER_FILES || config.userFiles,
   webRoot: process.env.ACTUAL_WEB_ROOT || config.webRoot,
+  redisHost: process.env.REDIS_HOST || '127.0.0.1',
+  redisPort: process.env.REDIS_PORT || 6379,
   https:
     process.env.ACTUAL_HTTPS_KEY && process.env.ACTUAL_HTTPS_CERT
       ? {
