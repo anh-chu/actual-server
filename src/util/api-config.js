@@ -4,7 +4,7 @@ import { createClient } from 'redis';
 import finalConfig from '../load-config.js';
 import JWTR from 'jwt-redis';
 
-// Initialize client with ioredis
+// Initialize client with redis
 export const redisClient = createClient({
   url: `redis://${finalConfig.redisHost}:${finalConfig.redisPort}`,
 });
@@ -24,10 +24,7 @@ export const expiresIn = 1000 * 60 * 60 * 12;
 
 // Create a Redlock instance for distributed locking
 export const redlock = new Redlock([
-  ioredis.Redis.createClient({
-    port: finalConfig.redisPort,
-    host: finalConfig.redisHost,
-  }),
+  new ioredis.Redis(`redis://${finalConfig.redisHost}:${finalConfig.redisPort}`),
 ]);
 
 export const config = {
