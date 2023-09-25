@@ -5,6 +5,8 @@ import MbankRetailBrexplpw from './banks/mbank-retail-brexplpw.js';
 import NorwegianXxNorwnok1 from './banks/norwegian-xx-norwnok1.js';
 import SandboxfinanceSfin0000 from './banks/sandboxfinance-sfin0000.js';
 import FintroBeGebabebb from './banks/fintro-be-gebabebb.js';
+import DanskeBankDabNO22 from './banks/danskebank-dabno22.js';
+import SparNordSpNoDK22 from './banks/sparnord-spnodk22.js';
 
 const banks = [
   AmericanExpressAesudef1,
@@ -13,6 +15,8 @@ const banks = [
   SandboxfinanceSfin0000,
   NorwegianXxNorwnok1,
   FintroBeGebabebb,
+  DanskeBankDabNO22,
+  SparNordSpNoDK22,
 ];
 
 export default (institutionId) =>

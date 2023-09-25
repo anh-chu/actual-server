@@ -34,10 +34,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@actual-app/web@npm:23.8.1":
-  version: 23.8.1
-  resolution: "@actual-app/web@npm:23.8.1"
-  checksum: 10b467e162430494da823d058821e34da17d7d8aeb1f1affb29274b458f6782fc034c585c76efb5da3368cd2098fceb31307cba42f6f08ba6405dca496d10f1f
+"@actual-app/web@npm:23.9.0":
+  version: 23.9.0
+  resolution: "@actual-app/web@npm:23.9.0"
+  checksum: fc6bb319058323eb62b2a44a239fe825ca0b7eee9a69be7467ece391a2ca368d28e047aa8d9a60defb45dc9c9302ac307737c1d04d5ba25f430aedeecdf0744b
   languageName: node
   linkType: hard
 
@@ -504,6 +504,15 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: 7be1670cb4404797d3a473bd72d66eb2b3e0f2f8a672a5e40bdb0812cc66085ec84bcd7b896709764cabf042fdc6b7f2d4755ac7cce10515eb596ff61dab5154
+  languageName: node
+  linkType: hard
+
+"@babel/runtime@npm:^7.21.0":
+  version: 7.22.10
+  resolution: "@babel/runtime@npm:7.22.10"
+  dependencies:
+    regenerator-runtime: ^0.14.0
+  checksum: 524d41517e68953dbc73a4f3616b8475e5813f64e28ba89ff5fca2c044d535c2ea1a3f310df1e5bb06162e1f0b401b5c4af73fe6e2519ca2450d9d8c44cf268d
   languageName: node
   linkType: hard
 
@@ -1613,7 +1622,7 @@ __metadata:
   dependencies:
     "@actual-app/api": ^6.1.0
     "@actual-app/crdt": 2.1.0
-    "@actual-app/web": 23.8.1
+    "@actual-app/web": 23.9.0
     "@babel/preset-typescript": ^7.20.2
     "@types/bcrypt": ^5.0.0
     "@types/better-sqlite3": ^7.6.3
@@ -1631,6 +1640,7 @@ __metadata:
     better-sqlite3: ^8.2.0
     body-parser: ^1.20.1
     cors: ^2.8.5
+    date-fns: ^2.30.0
     debug: ^4.3.4
     eslint: ^8.33.0
     eslint-plugin-prettier: ^4.2.1
@@ -2459,6 +2469,15 @@ __metadata:
   version: 4.0.1
   resolution: "data-uri-to-buffer@npm:4.0.1"
   checksum: 0d0790b67ffec5302f204c2ccca4494f70b4e2d940fea3d36b09f0bb2b8539c2e86690429eb1f1dc4bcc9e4df0644193073e63d9ee48ac9fce79ec1506e4aa4c
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:^2.30.0":
+  version: 2.30.0
+  resolution: "date-fns@npm:2.30.0"
+  dependencies:
+    "@babel/runtime": ^7.21.0
+  checksum: f7be01523282e9bb06c0cd2693d34f245247a29098527d4420628966a2d9aad154bd0e90a6b1cf66d37adcb769cd108cf8a7bd49d76db0fb119af5cdd13644f4
   languageName: node
   linkType: hard
 
@@ -5767,6 +5786,13 @@ __metadata:
   dependencies:
     node-abort-controller: ^3.0.1
   checksum: 62cda63af40435fb088228af29ddfb5686f85d72462595a94a674e05ff37e6764d3b3982d6493fd62d32ccadaeb72381b3afb51720f61e68711949050f6c859c
+  languageName: node
+  linkType: hard
+
+"regenerator-runtime@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "regenerator-runtime@npm:0.14.0"
+  checksum: 1c977ad82a82a4412e4f639d65d22be376d3ebdd30da2c003eeafdaaacd03fc00c2320f18120007ee700900979284fc78a9f00da7fb593f6e6eeebc673fba9a3
   languageName: node
   linkType: hard
 

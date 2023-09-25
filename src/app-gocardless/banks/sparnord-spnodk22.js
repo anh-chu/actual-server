@@ -1,4 +1,3 @@
-import * as d from 'date-fns';
 import {
   sortByBookingDateOrValueDate,
   amountToInteger,
@@ -17,13 +16,9 @@ const SORTED_BALANCE_TYPE_LIST = [
 
 /** @type {import('./bank.interface.js').IBank} */
 export default {
-  institutionIds: ['IntegrationBank'],
-  normalizeAccount(account) {
-    console.log(
-      'Available account properties for new institution integration',
-      { account: JSON.stringify(account) },
-    );
+  institutionIds: ['SPARNORD_SPNODK22'],
 
+  normalizeAccount(account) {
     return {
       account_id: account.id,
       institution: account.institution,
@@ -37,43 +32,22 @@ export default {
     };
   },
 
+  /**
+   * Spar Nord only gives information regarding the transaction in additionalInformation
+   */
   normalizeTransaction(transaction, _booked) {
-    const date =
-      transaction.bookingDate ||
-      transaction.bookingDateTime ||
-      transaction.valueDate ||
-      transaction.valueDateTime;
-    // If we couldn't find a valid date field we filter out this transaction
-    // and hope that we will import it again once the bank has processed the
-    // transaction further.
-    if (!date) {
-      return null;
-    }
     return {
       ...transaction,
-      date: d.format(d.parseISO(date), 'yyyy-MM-dd'),
+      date: transaction.bookingDate,
+      remittanceInformationUnstructured: transaction.additionalInformation,
     };
   },
 
   sortTransactions(transactions = []) {
-    console.log(
-      'Available (first 10) transactions properties for new integration of institution in sortTransactions function',
-      { top10Transactions: JSON.stringify(transactions.slice(0, 10)) },
-    );
     return sortByBookingDateOrValueDate(transactions);
   },
 
   calculateStartingBalance(sortedTransactions = [], balances = []) {
-    console.log(
-      'Available (first 10) transactions properties for new integration of institution in calculateStartingBalance function',
-      {
-        balances: JSON.stringify(balances),
-        top10SortedTransactions: JSON.stringify(
-          sortedTransactions.slice(0, 10),
-        ),
-      },
-    );
-
     const currentBalance = balances
       .filter((item) => SORTED_BALANCE_TYPE_LIST.includes(item.balanceType))
       .sort(
