@@ -1,4 +1,10 @@
-This is the main project to run [Actual](https://github.com/actualbudget/actual), a local-first personal finance tool. It comes with the latest version of Actual, and a server to persist changes and make data available across all devices.
+[![Docker Build](https://github.com/anh-chu/actual-server-with-restful-apis/actions/workflows/docker.yml/badge.svg)](https://github.com/anh-chu/actual-server-with-restful-apis/actions/workflows/docker.yml)
+
+This is a fork of [Actual](https://github.com/actualbudget/actual) with RESTful APIs suitable to be called from any HTTP client (like browser extensions).
+
+Please deploy with Docker Compose. For usage and quirks, you can review [this PR on the main repository](https://github.com/actualbudget/actual-server/pull/210).
+
+Actual is a local-first personal finance tool. It comes with the latest version of Actual, and a server to persist changes and make data available across all devices.
 
 ### Getting Started
 Actual is a local-first personal finance tool. It is 100% free and open-source, written in NodeJS, it has a synchronization element so that all your changes can move between devices without any heavy lifting.
