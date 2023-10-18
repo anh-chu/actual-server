@@ -34,10 +34,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@actual-app/web@npm:23.9.0":
-  version: 23.9.0
-  resolution: "@actual-app/web@npm:23.9.0"
-  checksum: fc6bb319058323eb62b2a44a239fe825ca0b7eee9a69be7467ece391a2ca368d28e047aa8d9a60defb45dc9c9302ac307737c1d04d5ba25f430aedeecdf0744b
+"@actual-app/web@npm:23.10.0":
+  version: 23.10.0
+  resolution: "@actual-app/web@npm:23.10.0"
+  checksum: bcff1abea060b73bf5865d7ba5e08105500456c19cddbbd816cd1ad88be33448dc6699496d6dc2d742405bafd5e7846578a4420e3beec90a0de8c579edc8b700
   languageName: node
   linkType: hard
 
@@ -1190,12 +1190,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/better-sqlite3@npm:^7.6.3":
-  version: 7.6.4
-  resolution: "@types/better-sqlite3@npm:7.6.4"
+"@types/better-sqlite3@npm:^7.6.5":
+  version: 7.6.5
+  resolution: "@types/better-sqlite3@npm:7.6.5"
   dependencies:
     "@types/node": "*"
-  checksum: 75ab00d31b56437cc65fe15ff673cf8d1609edca52628083921bcbab1cbd828d135a2859fb4e68af8ef5a4801705ba99d54b96499f997bce65dd306ade3dbe58
+  checksum: 3999d79378b35f793b89d089b18866922dcc225a24c7218caf3d81ab0b3510cf2a9b88782c6aee8c9c98690e1c5fe72047752172bcb8db1361bb0eb0399ff59f
   languageName: node
   linkType: hard
 
@@ -1622,10 +1622,10 @@ __metadata:
   dependencies:
     "@actual-app/api": ^6.1.0
     "@actual-app/crdt": 2.1.0
-    "@actual-app/web": 23.9.0
+    "@actual-app/web": 23.10.0
     "@babel/preset-typescript": ^7.20.2
     "@types/bcrypt": ^5.0.0
-    "@types/better-sqlite3": ^7.6.3
+    "@types/better-sqlite3": ^7.6.5
     "@types/cors": ^2.8.13
     "@types/express": ^4.17.17
     "@types/express-actuator": ^1.8.0
@@ -1637,7 +1637,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.51.0
     "@typescript-eslint/parser": ^5.51.0
     bcrypt: ^5.1.0
-    better-sqlite3: ^8.2.0
+    better-sqlite3: ^8.6.0
     body-parser: ^1.20.1
     cors: ^2.8.5
     date-fns: ^2.30.0
@@ -1968,6 +1968,17 @@ __metadata:
     node-gyp: latest
     prebuild-install: ^7.1.0
   checksum: 98243cb08a410fad0b5c443410428c8ea00376a4eb7d2c9a8a5a695970bc7a2a4007221930460939594d728e7d6bcb1889f46ec11a3bbb2257b996c80fbaacb1
+  languageName: node
+  linkType: hard
+
+"better-sqlite3@npm:^8.6.0":
+  version: 8.6.0
+  resolution: "better-sqlite3@npm:8.6.0"
+  dependencies:
+    bindings: ^1.5.0
+    node-gyp: latest
+    prebuild-install: ^7.1.1
+  checksum: 9ebdfd675352347cda1ba30d620a3c512d9db827a1eba66460fd48203a7ad8138b0195893bbf47d40f704bcdd598710041271d4ed69779979b6f784c0d3579a1
   languageName: node
   linkType: hard
 
@@ -5518,7 +5529,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prebuild-install@npm:^7.1.0":
+"prebuild-install@npm:^7.1.0, prebuild-install@npm:^7.1.1":
   version: 7.1.1
   resolution: "prebuild-install@npm:7.1.1"
   dependencies:
