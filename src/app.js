@@ -67,9 +67,6 @@ export default async function run() {
     fs.mkdirSync(config.userFiles);
   }
 
-  accountApp.init();
-  await syncApp.init();
-
   if (config.https) {
     const https = await import('node:https');
     const httpsOptions = {
