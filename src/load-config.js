@@ -44,7 +44,7 @@ if (process.env.ACTUAL_CONFIG_PATH) {
   userConfig = parseJSON(configFile, true);
 }
 
-/** @type {Omit<import('./config-types.js').Config, 'mode' | 'serverFiles' | 'apiFiles' | 'userFiles'>} */
+/** @type {Omit<import('./config-types.js').Config, 'mode' | 'dataDir' | 'serverFiles' | 'apiFiles' | 'userFiles'>} */
 let defaultConfig = {
   port: 5006,
   hostname: '::',
@@ -67,6 +67,7 @@ let config;
 if (process.env.NODE_ENV === 'test') {
   config = {
     mode: 'test',
+    dataDir: projectRoot,
     serverFiles: path.join(projectRoot, 'test-server-files'),
     apiFiles: path.join(projectRoot, 'test-api-files'),
     userFiles: path.join(projectRoot, 'test-user-files'),
@@ -76,6 +77,7 @@ if (process.env.NODE_ENV === 'test') {
   config = {
     mode: 'development',
     ...defaultConfig,
+    dataDir: defaultDataDir,
     serverFiles: path.join(defaultDataDir, 'server-files'),
     apiFiles: path.join(defaultDataDir, 'api-files'),
     userFiles: path.join(defaultDataDir, 'user-files'),

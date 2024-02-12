@@ -1,7 +1,4 @@
 import createDebug from 'debug';
-import fs from 'node:fs';
-import { sqlDir } from '../load-config.js';
-import { join } from 'node:path';
 import getAccountDb from '../account-db.js';
 
 /**
@@ -10,26 +7,16 @@ import getAccountDb from '../account-db.js';
  * @enum {string}
  */
 export const SecretName = {
-  nordigen_secretId: 'nordigen_secretId',
-  nordigen_secretKey: 'nordigen_secretKey',
+  gocardless_secretId: 'gocardless_secretId',
+  gocardless_secretKey: 'gocardless_secretKey',
+  simplefin_token: 'simplefin_token',
+  simplefin_accessKey: 'simplefin_accessKey',
 };
 
 class SecretsDb {
   constructor() {
     this.debug = createDebug('actual:secrets-db');
     this.db = null;
-    this.initialize();
-  }
-
-  initialize() {
-    if (!this.db) {
-      this.db = this.open();
-    }
-
-    this.debug(`initializing secrets table'`);
-    //Create secret table if it doesn't exist
-    const initSql = fs.readFileSync(join(sqlDir, 'secrets.sql'), 'utf8');
-    this.db.exec(initSql);
   }
 
   open() {
@@ -64,7 +51,6 @@ class SecretsDb {
 
 const secretsDb = new SecretsDb();
 const _cachedSecrets = new Map();
-const _observers = new Map();
 /**
  * A service for managing secrets stored in `secretsDb`.
  */
@@ -79,25 +65,6 @@ export const secretsService = {
   },
 
   /**
-   * Callbacks new secret value when a secret changes.
-   * @param {SecretName} name - The name of the secret to retrieve.
-   * @param {function(string): void} callback - The new secret value callback.
-   * @returns {void}
-   */
-  onUpdate: (name, callback) => {
-    const observers = _observers.get(name) ?? [];
-    observers.push(callback);
-    _observers.set(name, observers);
-  },
-
-  _notifyObservers: (name, value) => {
-    const observers = _observers.get(name) ?? [];
-    for (const observer of observers) {
-      observer(value);
-    }
-  },
-
-  /**
    * Sets the value of a secret by name.
    * @param {SecretName} name - The name of the secret to set.
    * @param {string} value - The value to set for the secret.
@@ -108,7 +75,6 @@ export const secretsService = {
 
     if (result.changes === 1) {
       _cachedSecrets.set(name, value);
-      secretsService._notifyObservers(name, value);
     }
     return result;
   },

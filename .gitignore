@@ -17,6 +17,8 @@ build/
 *.pem
 *.key
 artifacts.json
+.migrate
+.migrate-test
 
 # Yarn
 .pnp.*

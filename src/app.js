@@ -8,6 +8,7 @@ import config from './load-config.js';
 import * as accountApp from './app-account.js';
 import * as syncApp from './app-sync.js';
 import * as goCardlessApp from './app-gocardless/app-gocardless.js';
+import * as simpleFinApp from './app-simplefin/app-simplefin.js';
 import * as secretApp from './app-secrets.js';
 import * as apiApp from './app-api.js';
 
@@ -25,8 +26,8 @@ app.use(bodyParser.raw({ type: 'application/encrypted-file', limit: '50mb' }));
 
 app.use('/sync', syncApp.handlers);
 app.use('/account', accountApp.handlers);
-app.use('/nordigen', goCardlessApp.handlers);
 app.use('/gocardless', goCardlessApp.handlers);
+app.use('/simplefin', simpleFinApp.handlers);
 app.use('/secret', secretApp.handlers);
 app.use('/api', apiApp.handlers);
 
